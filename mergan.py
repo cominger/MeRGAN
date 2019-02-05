@@ -179,9 +179,9 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as session:
         disc_acgan_fake_acc = tf.add_n(disc_acgan_fake_accs) / len(DEVICES)
     noise_dim=784
     num_classes=NUM_CLASS
-   #_fixed_noise =tf.random_normal([noise_dim, 128])
+   _fixed_noise =tf.random_normal([noise_dim, 128])
     #_fixed_noise = pickle.load(open('/datatmp/result/fixed_noise/fixed_noise','r'))
-    #fixed_noise_one = tf.constant(_fixed_noise)
+    fixed_noise_one = tf.constant(_fixed_noise)
     fixed_noise_samples = []
     for i in range(NUM_CLASS):
         fixed_labels_one = tf.constant(np.ones(100,dtype='int32')*i)
