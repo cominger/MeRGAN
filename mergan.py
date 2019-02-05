@@ -177,12 +177,12 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as session:
     if ACGAN:
         disc_acgan_real_acc = tf.add_n(disc_acgan_real_accs) / len(DEVICES)
         disc_acgan_fake_acc = tf.add_n(disc_acgan_fake_accs) / len(DEVICES)
-    noise_dim=784
+
     num_classes=NUM_CLASS
-    n_imgs=128
-    n_chan=3
-    n_rows=32
-    n_cols=32
+    n_imgs=NUM_CLASS*BATCH_SIZE
+    n_chan=N_COLORS
+    n_rows=N_PIXELS
+    n_cols=N_PIXELS
     mean=0.0
     stddev=1.0
     _fixed_noise =noise = np.random.normal(mean, stddev/255., (n_imgs, n_chan, n_rows, n_cols))
