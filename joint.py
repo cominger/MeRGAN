@@ -167,9 +167,9 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as session:
     session.run(tf.global_variables_initializer())
 
     if DATASET == 'mnist':
-        train_gen, dev_gen, _ = lib.mnist_disjoint.load(BATCH_SIZE, all_classes, data_dir = DATASET_DIR)
+        train_gen, dev_gen, _ = lib.mnist.load(BATCH_SIZE, all_classes, data_dir = DATASET_DIR)
     elif DATASET == 'svhn':
-        train_gen, dev_gen = lib.svhn_disjoint.load(BATCH_SIZE, all_classes, data_dir = DATASET_DIR)
+        train_gen, dev_gen = lib.svhn.load(BATCH_SIZE, all_classes, data_dir = DATASET_DIR)
 
     def inf_train_gen():
         while True:
