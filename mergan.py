@@ -185,7 +185,7 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as session:
     n_cols=32
     mean=0.0
     stddev=1.0
-   _fixed_noise =noise = np.random.normal(mean, stddev/255., (n_imgs, n_chan, n_rows, n_cols))
+    _fixed_noise =noise = np.random.normal(mean, stddev/255., (n_imgs, n_chan, n_rows, n_cols))
     #_fixed_noise = pickle.load(open('/datatmp/result/fixed_noise/fixed_noise','r'))
     fixed_noise_one = tf.constant(_fixed_noise)
     fixed_noise_samples = []
